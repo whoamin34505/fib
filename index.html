@@ -14,6 +14,7 @@
             font-optical-sizing: auto;
             margin: 0;
             padding: 0;
+            background-color: white;
         }
 
         table {
@@ -155,8 +156,22 @@
             scroll-behavior: smooth;
         }
         .offset {
-            margin-top: 4%; /* This should match the height of your nav */
-        }
+            background-color: white;
+    margin-top: 25%; /* This should match the height of your nav by default */
+}
+@media only screen and (min-width: 1000px) {
+    /* Стили для ПК и iPad (в ландшафтной ориентации) */
+    .offset {
+        margin-top: 4%; /* This should match the height of your nav on desktop and iPad */
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    /* Стили для мобильных устройств */
+    .offset {
+        margin-top: 25%; /* This should match the height of your nav on mobile */
+    }
+}
     </style>
 </head>
 <body>
