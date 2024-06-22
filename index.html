@@ -9,112 +9,111 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
-body {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
+        body {
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+        }
 
-}
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            overflow: hidden;
+        }
 
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    overflow: hidden;
-}
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            position: relative;
+        }
 
-th, td {
-    padding: 12px 15px;
-    text-align: left;
-    position: relative;
-}
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
 
-th {
-    background-color: #f4f4f4;
-    font-weight: bold;
-}
+        th:first-child {
+            border-top-left-radius: 12px;
+        }
 
-th:first-child {
-    border-top-left-radius: 12px;
-}
+        th:last-child {
+            border-top-right-radius: 12px;
+        }
 
-th:last-child {
-    border-top-right-radius: 12px;
-}
+        td {
+            background-color: #fff;
+        }
 
-td {
-    background-color: #fff;
-}
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
 
-tbody tr:hover {
-    background-color: #f1f1f1;
-}
+        td:first-child,
+        th:first-child {
+            border-left: none;
+        }
 
-td:first-child,
-th:first-child {
-    border-left: none;
-}
+        td:last-child,
+        th:last-child {
+            border-right: none;
+        }
 
-td:last-child,
-th:last-child {
-    border-right: none;
-}
+        tbody tr:last-child td:first-child {
+            border-bottom-left-radius: 12px;
+        }
 
-tbody tr:last-child td:first-child {
-    border-bottom-left-radius: 12px;
-}
+        tbody tr:last-child td:last-child {
+            border-bottom-right-radius: 12px;
+        }
 
-tbody tr:last-child td:last-child {
-    border-bottom-right-radius: 12px;
-}
+        th, td {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
 
-th, td {
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-}
+        th + th, td + td {
+            border-left: 1px solid #ddd;
+        }
 
-th + th, td + td {
-    border-left: 1px solid #ddd;
-}
+        th:nth-child(1), td:nth-child(1),
+        th:nth-child(3), td:nth-child(3) {
+            width: 10%;
+        }
 
-th:nth-child(1), td:nth-child(1),
-th:nth-child(3), td:nth-child(3) {
-    width: 10%;
-}
-
-th:nth-child(2), td:nth-child(2) {
-    width: 80%;
-}
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: white;
-    height: 25%;
-    z-index: 1000;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-nav ul li {
-    margin-bottom: 10px; /* Уменьшение отступа между строками */
-}
-nav ul li a {
-    font-size: 25px; /* Увеличение размера шрифта */
-    text-decoration: none; /* Убираем подчеркивание */
-    color: #000; /* Цвет текста */
-    padding: 5px 10px;
-    display: block;
-    transition: background-color 0.3s ease; /* Плавное изменение фона */
-}
-nav ul li a:hover {
-    background-color: #ddd; /* Цвет подсветки при наведении */
-}
+        th:nth-child(2), td:nth-child(2) {
+            width: 80%;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            height: 25%;
+            z-index: 1000;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            margin-bottom: 10px; /* Уменьшение отступа между строками */
+        }
+        nav ul li a {
+            font-size: 25px; /* Увеличение размера шрифта */
+            text-decoration: none; /* Убираем подчеркивание */
+            color: #000; /* Цвет текста */
+            padding: 5px 10px;
+            display: block;
+            transition: background-color 0.3s ease; /* Плавное изменение фона */
+        }
+        nav ul li a:hover {
+            background-color: #ddd; /* Цвет подсветки при наведении */
+        }
         section {
             margin-top: 20px;
         }
@@ -122,12 +121,18 @@ nav ul li a:hover {
             background-color: yellow;
         }
         mark {
-    background-color: yellow;
-    color: black;
-}
-
-
+            background-color: yellow;
+            color: black;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .offset {
+            margin-top: 15%; /* This should match the height of your nav */
+        }
     </style>
+</head>
+<body>
     <nav>
         <h1>Навигация</h1>
         <ul>
@@ -137,8 +142,7 @@ nav ul li a:hover {
         </ul>
         <input type="text" id="search" placeholder="Поиск...">
     </nav>
-</head>
-<body>
+    <p class="offset">
     <p>
         <h2 id="miranda">Миранда</h2>
         <a>Вы имеете право хранить молчание. 
@@ -372,52 +376,70 @@ nav ul li a:hover {
             </tr>
         </tbody>
     </table>
-
+    </p>
     <script>
- document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('search');
-    const paragraphs = document.querySelectorAll('p, td');
-    let timeoutId;
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search');
+            const paragraphs = document.querySelectorAll('p, td');
+            let timeoutId;
 
-    const searchHandler = function() {
-        const searchTerm = searchInput.value.trim().toLowerCase();
+            const searchHandler = function() {
+                const searchTerm = searchInput.value.trim().toLowerCase();
 
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-        }
-
-        timeoutId = setTimeout(function() {
-            console.log(`Searching for: ${searchTerm}`);
-
-            let firstMatchFound = false;
-
-            paragraphs.forEach(paragraph => {
-                const paragraphText = paragraph.textContent.toLowerCase();
-                const originalHtml = paragraph.innerHTML;
-
-                // Clear previous highlights
-                paragraph.innerHTML = paragraphText;
-
-                if (searchTerm) {
-                    const searchRegex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-                    const highlightedHTML = paragraphText.replace(searchRegex, match => `<mark>${match}</mark>`);
-                    paragraph.innerHTML = highlightedHTML;
-
-                    if (!firstMatchFound && highlightedHTML !== paragraphText) {
-                        // Scroll to the first match
-                        paragraph.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        firstMatchFound = true;
-                    }
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
                 }
+
+                timeoutId = setTimeout(function() {
+                    console.log(`Searching for: ${searchTerm}`);
+
+                    let firstMatchFound = false;
+
+                    paragraphs.forEach(paragraph => {
+                        const paragraphText = paragraph.textContent.toLowerCase();
+                        const originalHtml = paragraph.innerHTML;
+
+                        // Clear previous highlights
+                        paragraph.innerHTML = paragraphText;
+
+                        if (searchTerm) {
+                            const searchRegex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                            const highlightedHTML = paragraphText.replace(searchRegex, match => `<mark>${match}</mark>`);
+                            paragraph.innerHTML = highlightedHTML;
+
+                            if (!firstMatchFound && highlightedHTML !== paragraphText) {
+                                // Scroll to the first match
+                                paragraph.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                firstMatchFound = true;
+                            }
+                        }
+                    });
+
+                }, 200); // Увеличил задержку до 200 мс для более комфортного ввода
+            };
+
+            // Добавляем обработчик события input для поля поиска
+            searchInput.addEventListener('input', searchHandler);
+
+            // Обработчик кликов по ссылкам в навигации
+            document.querySelectorAll('nav ul li a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = anchor.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    const navHeight = document.querySelector('nav').offsetHeight;
+
+                    if (targetElement) {
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
-
-        }, 200); // Увеличил задержку до 400 мс для более комфортного ввода
-    };
-
-    // Добавляем обработчик события input для поля поиска
-    searchInput.addEventListener('input', searchHandler);
-});
-
+        });
     </script>
 </body>
 </html>
