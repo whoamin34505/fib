@@ -12,6 +12,8 @@
         body {
             font-family: "Montserrat", sans-serif;
             font-optical-sizing: auto;
+            margin: 0;
+            padding: 0;
         }
 
         table {
@@ -21,9 +23,11 @@
             border: 1px solid #ddd;
             border-radius: 12px;
             overflow: hidden;
+            margin-top: 20px;
         }
 
-        th, td {
+        th,
+        td {
             padding: 12px 15px;
             text-align: left;
             position: relative;
@@ -68,67 +72,90 @@
             border-bottom-right-radius: 12px;
         }
 
-        th, td {
+        th,
+        td {
             border-top: 1px solid #ddd;
             border-bottom: 1px solid #ddd;
         }
 
-        th + th, td + td {
+        th+th,
+        td+td {
             border-left: 1px solid #ddd;
         }
 
-        th:nth-child(1), td:nth-child(1),
-        th:nth-child(3), td:nth-child(3) {
+        th:nth-child(1),
+        td:nth-child(1),
+        th:nth-child(3),
+        td:nth-child(3) {
             width: 10%;
         }
 
-        th:nth-child(2), td:nth-child(2) {
+        th:nth-child(2),
+        td:nth-child(2) {
             width: 80%;
         }
+
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             background-color: white;
-            height: 25%;
             z-index: 1000;
             padding: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
+        nav h1 {
+            font-size: 18px; /* Уменьшил размер шрифта для заголовка навигации */
+            margin: 0;
+        }
+
         nav ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
+            display: flex;
+            gap: 10px;
         }
+
         nav ul li {
             margin-bottom: 10px; /* Уменьшение отступа между строками */
         }
+
         nav ul li a {
-            font-size: 25px; /* Увеличение размера шрифта */
+            font-size: 14px; /* Уменьшил размер шрифта для ссылок навигации */
             text-decoration: none; /* Убираем подчеркивание */
             color: #000; /* Цвет текста */
             padding: 5px 10px;
             display: block;
             transition: background-color 0.3s ease; /* Плавное изменение фона */
         }
+
         nav ul li a:hover {
             background-color: #ddd; /* Цвет подсветки при наведении */
         }
+
         section {
-            margin-top: 20px;
+            margin-top: 70px; /* Увеличил отступ для компенсации фиксированной навигации */
         }
+
         .highlight {
             background-color: yellow;
         }
+
         mark {
             background-color: yellow;
             color: black;
         }
+
         html {
             scroll-behavior: smooth;
         }
         .offset {
-            margin-top: 15%; /* This should match the height of your nav */
+            margin-top: 4%; /* This should match the height of your nav */
         }
     </style>
 </head>
