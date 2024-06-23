@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="https://i.imgur.com/HpPTBME.png">
@@ -13,8 +14,9 @@
             font-family: "Montserrat", sans-serif;
             font-optical-sizing: auto;
             margin: 0;
-            padding: 0;
+            padding: 10px;
             background-color: white;
+            box-sizing: border-box;
         }
 
         table {
@@ -99,18 +101,18 @@
         nav {
             position: fixed;
             top: 0;
-            width: 100%;
+            width: 98%;
             background-color: white;
             z-index: 1000;
             padding: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column; /* Изменено с row на column */
+            align-items: center; /* Центрирование по горизонтали */
         }
 
         nav h1 {
-            font-size: 18px; /* Уменьшил размер шрифта для заголовка навигации */
+            font-size: 18px;
             margin: 0;
         }
 
@@ -119,74 +121,103 @@
             padding: 0;
             margin: 0;
             display: flex;
+            flex-wrap: wrap; /* Позволяет переносить элементы на следующую строчку */
             gap: 10px;
+            justify-content: center; /* Центрирование по горизонтали */
         }
 
         nav ul li {
-            margin-bottom: 10px; /* Уменьшение отступа между строками */
+            margin-bottom: 10px;
         }
 
         nav ul li a {
-            font-size: 14px; /* Уменьшил размер шрифта для ссылок навигации */
-            text-decoration: none; /* Убираем подчеркивание */
-            color: #000; /* Цвет текста */
+            font-size: 14px;
+            text-decoration: none;
+            color: #000;
             padding: 5px 10px;
             display: block;
-            transition: background-color 0.3s ease; /* Плавное изменение фона */
+            transition: background-color 0.3s ease;
         }
 
         nav ul li a:hover {
-            background-color: #ddd; /* Цвет подсветки при наведении */
+            background-color: #ddd;
         }
+
+        nav input {
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-size: 15px; /* Размер шрифта */
+    margin-top: 1px; /* Повышение поля ввода поиска */
+    border-radius: 8px; /* Закругление углов */
+    padding: 8px; /* Добавление внутреннего отступа */
+}
+
 
         section {
-            margin-top: 70px; /* Увеличил отступ для компенсации фиксированной навигации */
+            margin-top: 70px;
         }
 
-        .highlight {
-            background-color: yellow;
-        }
+        @media only screen and (max-width: 1024px) {
+            body {
+                padding: 10px;
+            }
 
-        mark {
-            background-color: yellow;
-            color: black;
-        }
+            .offset {
+                margin-top: 25%;
+            }
 
-        html {
-            scroll-behavior: smooth;
-        }
-        .offset {
-            background-color: white;
-    margin-top: 25%; /* This should match the height of your nav by default */
-}
-@media only screen and (min-width: 1000px) {
-    /* Стили для ПК и iPad (в ландшафтной ориентации) */
-    .offset {
-        margin-top: 4%; /* This should match the height of your nav on desktop and iPad */
-    }
-}
+            table,
+            th,
+            td {
+                font-size: 12px;
+                padding: 8px;
+            }
+            nav {
+                width: 90%;
+            }
+            nav h1 {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+            }
 
-@media only screen and (max-width: 1000px) {
-    /* Стили для мобильных устройств */
-    .offset {
-        margin-top: 25%; /* This should match the height of your nav on mobile */
-    }
-}
+            nav ul {
+                justify-content: center; /* Центрирование по горизонтали */
+            }
+
+            nav input {
+                width: 100%;
+                max-width: 70%;
+            }
+        }
     </style>
 </head>
 <body>
     <nav>
         <h1>Навигация</h1>
+        <input type="text" id="search" placeholder="Поиск...">
         <ul>
             <li><a href="#miranda"> ● Миранда</a></li>
             <li><a href="#zalog"> ● Залог</a></li>
             <li><a href="#uk"> ● Уголовный кодекс</a></li>
+            <li><a href="#miranda"> ● Миранда</a></li>
+            <li><a href="#miranda"> ● Миранда</a></li>
+            <li><a href="#miranda"> ● Миранда</a></li>
+            <li><a href="#miranda"> ● Миранда</a></li>
+            <li><a href="#miranda"> ● Миранда</a></li>
+            <li><a href="#miranda"> ● Миранда</a></li>
         </ul>
-        <input type="text" id="search" placeholder="Поиск...">
+        
     </nav>
     <p class="offset">
     <p>
-        <h2 id="miranda">Миранда</h2>
+        <h2 id="miranda" style="
+        margin-top: 120px;
+    ">Миранда</h2>
         <a>Вы имеете право хранить молчание. 
             Всё, что вы скажете,
              будет использовано против Вас в суде.
@@ -421,67 +452,82 @@
     </p>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('search');
-            const paragraphs = document.querySelectorAll('p, td');
-            let timeoutId;
+    const searchInput = document.getElementById('search');
+    const paragraphs = document.querySelectorAll('p, td');
+    let timeoutId;
 
-            const searchHandler = function() {
-                const searchTerm = searchInput.value.trim().toLowerCase();
+    const searchHandler = function() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
 
-                if (timeoutId) {
-                    clearTimeout(timeoutId);
-                }
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
 
-                timeoutId = setTimeout(function() {
-                    console.log(`Searching for: ${searchTerm}`);
+        timeoutId = setTimeout(function() {
+            console.log(`Searching for: ${searchTerm}`);
 
-                    let firstMatchFound = false;
+            let firstMatchFound = false;
 
-                    paragraphs.forEach(paragraph => {
-                        const paragraphText = paragraph.textContent.toLowerCase();
-                        const originalHtml = paragraph.innerHTML;
+            paragraphs.forEach(paragraph => {
+                const paragraphText = paragraph.textContent.toLowerCase();
+                const originalHtml = paragraph.innerHTML;
 
-                        // Clear previous highlights
-                        paragraph.innerHTML = paragraphText;
+                // Clear previous highlights
+                paragraph.innerHTML = paragraphText;
 
-                        if (searchTerm) {
-                            const searchRegex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-                            const highlightedHTML = paragraphText.replace(searchRegex, match => `<mark>${match}</mark>`);
-                            paragraph.innerHTML = highlightedHTML;
+                if (searchTerm) {
+                    const searchRegex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                    const highlightedHTML = paragraphText.replace(searchRegex, match => `<mark>${match}</mark>`);
+                    paragraph.innerHTML = highlightedHTML;
 
-                            if (!firstMatchFound && highlightedHTML !== paragraphText) {
-                                // Scroll to the first match
-                                paragraph.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                firstMatchFound = true;
-                            }
-                        }
-                    });
-
-                }, 200); // Увеличил задержку до 200 мс для более комфортного ввода
-            };
-
-            // Добавляем обработчик события input для поля поиска
-            searchInput.addEventListener('input', searchHandler);
-
-            // Обработчик кликов по ссылкам в навигации
-            document.querySelectorAll('nav ul li a').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-
-                    const targetId = anchor.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    const navHeight = document.querySelector('nav').offsetHeight;
-
-                    if (targetElement) {
-                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
+                    if (!firstMatchFound && highlightedHTML !== paragraphText) {
+                        // Scroll to the first match
+                        paragraph.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        firstMatchFound = true;
                     }
-                });
+                }
             });
+
+        }, 200); // Увеличил задержку до 200 мс для более комфортного ввода
+    };
+
+    // Добавляем обработчик события input для поля поиска
+    searchInput.addEventListener('input', searchHandler);
+
+    // Обработчик кликов по ссылкам в навигации
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const targetId = anchor.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            const navHeight = document.querySelector('nav').offsetHeight;
+
+            if (targetElement) {
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
         });
+    });
+
+    // Установка корректного отступа для мобильных устройств
+    const adjustOffset = () => {
+        const offsetElement = document.querySelector('.offset');
+        const navElement = document.querySelector('nav');
+        if (window.innerWidth <= 1024) {
+            offsetElement.style.marginTop = navElement.offsetHeight + 'px';
+        } else {
+            offsetElement.style.marginTop = '4%';
+        }
+    };
+
+    window.addEventListener('resize', adjustOffset);
+    adjustOffset(); // Установить правильный отступ при загрузке
+});
+
     </script>
 </body>
 </html>
