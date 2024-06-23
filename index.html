@@ -199,6 +199,18 @@
                 max-width: 70%;
             }
         }
+        @media screen and (max-width: 768px) {
+    /* Скрытие элементов навигации, кроме поиска и заголовка */
+    nav ul li:not(:first-child),
+    nav ul li:not(:first-child) ~ li {
+        display: none;
+    }
+
+    /* Изменение стилей для заголовка */
+    nav h1 {
+        font-size: 16px; /* Уменьшаем размер шрифта заголовка на мобильных устройствах */
+    }
+}
     </style>
 </head>
 <body>
@@ -206,9 +218,10 @@
         <h1>Навигация</h1>
         <input type="text" id="search" placeholder="Поиск...">
         <ul>
+            <li><a href="#uk"> ● Уголовный кодекс</a></li>
             <li><a href="#miranda"> ● Миранда</a></li>
             <li><a href="#zalog"> ● Залог</a></li>
-            <li><a href="#uk"> ● Уголовный кодекс</a></li>
+            
             <li><a href="#grazh"> ● Процесс задержания гражданского</a></li>
             <li><a href="#gos"> ● Процесс задержания гос.служащего</a></li>
             <li><a href="#arest"> ● Арест</a></li>
